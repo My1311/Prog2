@@ -1,4 +1,4 @@
-package Ubung0;
+package Ubung0.A2;
 
 public interface Stapel extends Puffer{
     // die das aktuell oberste Element auf dem

@@ -1,14 +1,16 @@
-package Ubung0;
+package Ubung2.A2;
 
-public interface Puffer {
+public interface Puffer<T> {
     // ob der Speicher leer ist
     boolean isEmpty() ;
     // die aktelle Groeße des Speichers zu liefern (= Anzahl belegter Speicherplaetze)
-     int size();
+    int size();
     // die maximale Groeße des Speichers zu liefern
-     int capacity();
+    int capacity();
     // ein Element anzunehmen und in den Speicher einzufugen
-     void insert(int elm);
+    // fugt ein Element am Ende der Folge an.
+    void insert(T elm) throws java.lang.IllegalStateException;
     // ein Element aus dem Speicher zu entnehmen
-    int remove();
+    T remove() throws java.util.NoSuchElementException;
 }
+

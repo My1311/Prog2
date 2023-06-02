@@ -1,5 +1,6 @@
-package Ubung0;
+package Ubung0.A2;
 
+import java.time.Instant;
 import java.util.NoSuchElementException;
 
 public class SchlangeMitArray implements Schlange{
@@ -31,6 +32,7 @@ public class SchlangeMitArray implements Schlange{
 
     @Override
     public void insert(int elm) {
+
         if(isFull()) {
             throw new IllegalStateException("Der Speicher ist voll, das Element kann nicht hinzugefuert werden.");
         }
@@ -55,5 +57,36 @@ public class SchlangeMitArray implements Schlange{
     @Override
     public int front() {
         return array[0];
+    }
+    // for( ) {if() {s +=} } ist anders von for( ) {if() s += } ( ohne Klammer von if.
+    // Weil mit Klammern werden nur Befehle s += unter Bedingungen von if gemacht werden.
+    public String toString() {
+        String s = "[";
+        for (int i = 0; i < size() ; i++) {
+            if(i>0)
+                s +=  ",";
+                s += array[i];
+
+        }
+        s +="]";
+        return s;
+    }
+
+    public static void main(String[] args) {
+
+        int[] ints = {2,4,6,8};
+        SchlangeMitArray a = new SchlangeMitArray(4);
+        System.out.println(a.isEmpty());
+        System.out.println(a.isFull());
+        for (int i: ints) {
+            a.insert(i);
+        }
+        System.out.println(a.isEmpty());
+        System.out.println(a.isFull());
+        System.out.println(a.size);
+        System.out.println(a.capacity());
+        System.out.println(a);
+        System.out.println(a.remove());
+        System.out.println(a);
     }
 }
