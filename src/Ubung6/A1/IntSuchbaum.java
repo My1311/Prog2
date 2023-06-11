@@ -100,7 +100,7 @@ public class IntSuchbaum {
         if(elm == null) {
             return s;
         }
-        s += (elm.links != null ? toString(elm.links, s) : "")+ elm.data + (elm.rechts != null ? toString(elm.rechts, s) : "");
+        s += (elm.links != null ? toString(elm.links, s) : "") + elm.data + (elm.rechts != null ? toString(elm.rechts, s) : "");
         return "(" + s + ")";
     }
 

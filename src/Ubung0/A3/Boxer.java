@@ -1,6 +1,6 @@
 package Ubung0.A3;
 
-public class Boxer extends Person{
+public class Boxer extends Person {
     private int gewicht;
     public Boxer(String name, String vorname, int gewicht) {
         super(name, vorname);
