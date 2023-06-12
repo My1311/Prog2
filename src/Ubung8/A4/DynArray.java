@@ -145,7 +145,7 @@ public class DynArray<T> implements Iterable<T>{
         private int i = 0;
         @Override
         public boolean hasNext() {
-            return i < data.length ;
+            return i < size;
         }
 
         @Override
@@ -159,5 +159,15 @@ public class DynArray<T> implements Iterable<T>{
     @Override
     public Iterator<T> iterator() {
         return new DynArrayIterator();
+    }
+
+    public static void main(String[] args) {
+        DynArray<Integer> da = new DynArray<>();
+        da.addLast(1);
+        da.addLast(2);
+        da.addLast(3);
+        for (Integer i : da) {
+            System.out.println(i);
+        }
     }
 }

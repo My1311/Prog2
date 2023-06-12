@@ -8,8 +8,9 @@ public class Iterator1DArray<T> implements Iterator<T> {
     private T[] a;
     public Iterator1DArray(T[] a){
         this.pos = 0;
-        stop = -1;
+        stop = -1; // nicht stoppen, ende = a.length;
         this.a = a;
+        // this(a,start:0)
     }
     // Von Start bis Ende
     public Iterator1DArray(T[] a, int start) {
@@ -20,13 +21,14 @@ public class Iterator1DArray<T> implements Iterator<T> {
     // Von Start bis Ende (exklusiv)
     public Iterator1DArray(T[]a, int start, int ende) {
         this.pos = start;
-        this.pos = start;
        /*falls die übergebene Länge nicht inerhalb des
          Arrays liegt wird IllegalArgumentException geworfen.*/
-        if(ende >a.length && ende < 0) {
-            throw  new IllegalArgumentException("Ende liegt nicht inerhalb des Arrays!");
-        }
+
         stop = ende;
+        if(ende >a.length || ende < pos) {
+            this.stop = a.length;
+            // throw  new IllegalArgumentException("Ende liegt nicht innerhalb des Arrays!");
+        }
         this.a = a;
     }
     @Override
@@ -48,8 +50,12 @@ public class Iterator1DArray<T> implements Iterator<T> {
     public static void main(String[] args) {
         Integer[] a = {1,2,3,4};
         Iterator1DArray<Integer> speicher = new Iterator1DArray<>(a);
+        //                                                       (new String [] {"Mandy","Andy","candy"})
         // for(int i : a) {System.out.println(i);}
         for(; speicher.hasNext(); System.out.println(speicher.next())); // 1,2,3,4
+        /* while(speicher.hasNext()){
+        System.out.println(speicher.next());
+         */
         Iterator1DArray<Integer> speicher1 = new Iterator1DArray<>(a,1);
         for(; speicher1.hasNext(); System.out.println(speicher1.next())); // 2,3,4
         Iterator1DArray<Integer> speicher2 = new Iterator1DArray<>(a,1,3);//2,3

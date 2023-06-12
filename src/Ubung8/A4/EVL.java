@@ -19,6 +19,7 @@ public class EVL<T> implements Iterable<T>{
     }
     private class EVLIterator implements Iterator <T>{
         private Listenelement i = first; // i ist Index
+        // wir konnen hier auch Konstruktor public EVLIterator hier machen , aber das ist nicht nötigt
         @Override
         public boolean hasNext() {
             return i != null; // solang das nächste Element von i nicht Null ist
@@ -32,6 +33,16 @@ public class EVL<T> implements Iterable<T>{
             T ret = i.data; // speicher der Data
             i = i.next; // zu nächsten Element gehen
             return  ret;
+        }
+    }
+
+    public static void main(String[] args) {
+        EVL<Integer> evl = new EVL<>();
+        evl.addLast(1);
+        evl.addLast(2);
+        evl.addLast(3);
+        for(Integer i : evl){
+            System.out.println(i);
         }
     }
     public T getFirst() {
